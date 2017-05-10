@@ -8,6 +8,11 @@ var data = [{ //0
     "symbolSize": 60,
     "draggable": "true",
     "value": 27,
+    "itemStyle": {
+      "normal": {
+        "color": "#080805"
+      }
+    },
     "label": {
         "normal": {
             // "position": "inside"
@@ -238,7 +243,7 @@ option = {
             color: '#cdd0d5'
         }]),
         title: {
-            text: "Relations Between Companies",
+            text: "Events Between Companies",
             subtext: "From 2011 to 2017",
             top: "0",
             left: "center",
@@ -278,13 +283,92 @@ option = {
                         res += cooperate;
                         res += 'Cooperation Events<br>';
                         break;
-                    case 'Nike':
-                        res += 'Nike<br>';
+
+                    //acquire
+                    case 'Acquire Events':
+                        res += 'Acquire Events<br>';
                         res += acquire;
                         res += '2011: Nike acquired USA<br>';
+                        res += acquire;
+                        res += '2017: Geely acquired Tesla';
+                    break;
+                    case 'Nike -> USA':
+                        res += acquire;
+                        res += 'Nike acquired USA in 2011';
+                    break;
+                    case 'Geely -> Tesla':
+                        res += acquire;
+                        res += 'Geely acquired Tesla in 2017';
+                    break;
+
+                    //increase
+                    case 'Increase Stake Events':
+                        res += 'Increase Stake Events<br>';
+                        res += increase;
+                        res += '2014: McDonald increased stake of USA<br>';
+                        res += increase;
+                        res += '2015: Alibaba increased stake of China<br>';
+                        res += increase;
+                        res += '2016: Tencent increased stake of JD.com';
+                    break;
+                    case 'McDonald -> USA':
+                        res += increase;
+                        res += 'McDonald increased stake of USA in 2014';
+                    break;
+                    case 'Alibaba -> China':
+                        res += increase;
+                        res += 'Alibaba increased stake of China in 2015';
+                    break;
+                    case 'Tencent -> JD.com':
+                        res += increase;
+                        res += 'Tencent increased stake of JD.com in 2016';
+                    break;
+
+                    //decrease
+                    case 'Decrease Stake Events':
+                        res += 'Decrease Stake Events<br>';
+                        res += decrease;
+                        res += '2014: Adidas decreased stake of Adidas China<br>';
+                        res += decrease;
+                        res += '2015: KFC decreased stake of KFC China';
+                    break;
+                    case 'Adidas -> Adidas China':
+                        res += decrease;
+                        res += 'Adidas decrease stake of Adidas China in 2014';
+                    break;
+                    case 'KFC -> KFC China':
+                        res += decrease;
+                        res += 'KFC decrease stake of KFC China in 2015';
+                    break;
+
+                    //sue
+                    case 'Sue Events':
+                        res += 'Sue Events<br>';
                         res += sue;
-                        res += '2012: Sued by Adidas';
-                        break;
+                        res += '2012: Apple sued Samsung<br>';
+                        res += sue;
+                        res += '2012: Adidas sued Nike';
+                    break;
+                    case 'Apple -> Samsung':
+                        res += acquire;
+                        res += 'Apple sued Samsung in 2012';
+                    break;
+                    case 'Adidas -> Nike':
+                        res += acquire;
+                        res += 'Adidas sued Nike in 2012';
+                    break;
+
+                    //cooperate
+                    case 'Cooperation Events':
+                        res += 'Cooperation Events<br>';
+                        res += cooperate;
+                        res += '2016: Toyota cooperated with Tesla';
+                    break;
+                    case 'Toyota -> Tesla':
+                        res += cooperate;
+                        res += 'Toyota acquired Tesla in 2016';
+                    break;
+
                     default:
                         res = tip;
                 }
@@ -297,7 +381,7 @@ option = {
             },
             selectedMode: 'false',
             right: 80,
-            top: '45%',
+            top: '42%',
             orient: 'vertical',
             data: ['Sue', 'Acquire', 'Decrease Stake', 'Increase Stake', 'Cooperation']
         }],
@@ -325,7 +409,7 @@ option = {
 
             force: {
                 repulsion: 300,
-                edgeLength: [180, 70],
+                edgeLength: [190, 70],
                 gravity: 0.1
             },
             data: data,
@@ -398,8 +482,8 @@ option = {
         },
         { //2017
             series: [{
-                data: [data[7], data[9], data[14], data[15]],
-                links: [link[8], link[10]]
+                data: [data[11], data[13]],
+                links: [link[13]]
             }]
         },
         { //2011-2017
