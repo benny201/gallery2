@@ -227,8 +227,23 @@ option = {
             // currentIndex: 2,
             playInterval: 2000,
             loop: false,
-            symbolSize: 20,
-            bottom: 30,
+            symbolSize: 50,
+            symbolOffset: [0, '100%'],
+            symbolRotate :'180',
+            symbol: 'pin',
+            bottom: 80,
+            // bottom:
+            label: {
+              // position: {
+              //   number: 100
+              // }
+              position:'bottom',
+              normal: {
+                textStyle: {
+                  fontSize: 15
+                }
+              }
+            },
             controlPosition: 'right',
             controlStyle: {
                 itemSize: 25
